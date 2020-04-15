@@ -8,5 +8,17 @@ var coastPoly = L.polygon([
   [13.113952, -59.625061],
   [13.108599, -59.621867]
 ]).addTo(barbMap)
+var holeTown = new L.LatLng(13.187930, -59.637829)
+var bridgeTown = new L.LatLng(13.096851, -59.614483)
+var townLine = [holeTown, bridgeTown]
+
+var polyLine = new L.Polyline(townLine, {
+  color: 'purple',
+  weight: 3,
+  opacity: 0.5,
+  smoothFactor: 1
+})
+polyLine.addTo(barbMap)
 coastPoly.bindPopup('In this highlighted area you can find Mount Gay Distillery and the house Rihanna grew up in')
 bridgetownMark.bindPopup('Saint Michael Parish.')
+polyLine.bindPopup('This line connects two of the most popular areas to visit in Barbados')
