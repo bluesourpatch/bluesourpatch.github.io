@@ -1,29 +1,30 @@
 /* global L jQuery */
 
-var damagewindMap = L.map('map3').setView([41, -75], 7)
-L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png').addTo(damagewindMap)
-var damagingWinds = 'https://opendata.arcgis.com/datasets/b227d5d7ef874e388ab944b77d54975f_1.geojson'
-jQuery.getJSON(damagingWinds, function (data) {
-  var damageWindStyle = function (feature) {
-    var windMonth = feature.mo
-    var windColor = 'olive' // let the initial color be a darker green
-    if (windMonth < 5 & windMonth > 7) { windColor = 'green' } // highlighting non-summer months
+var map3 = L.map('map3').setView([41, -96], 4)
+L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png').addTo(map3)
+var urlUSData = 'https://geog4046.github.io/assignment-resources/data/us_state_demographics_ESRI_2010A.geojson'
+jQuery.getJSON(urlUSData, function (data) {
+  var mapColor = function (feature) {
+    var cropAcre = feature.properties.CROP_ACR12
+    var cropColor = 'darkkhaki'
+    if (cropAcre > 3000000) { cropColor = 'limegreen' }
     return {
-      color: 'blue',
-      fillColor: windColor,
-      weight: 1,
+      fillColor: cropColor,
+      weight: 2,
       fillOpacity: 0.4
+      // color: 'blue'
     }
   }
-  var eachMonthFn = function (feature, layer) {
-    var stateName = feature.st
-    var month = feature.mo
-    layer.bindPopUp(stateName + ' experiences damaging wind speeds of >100 knots in: <br>' + month)
-  }
   var colorObject = {
-    style: damageWindStyle,
-    onEachFeature: eachMonthFn
+    style: mapColor,
+    onEachFeature: cropAcreFeat
   }
-  //  L.geoJSON(data, colorObject).addTo(damagewindMap)
-  L.geoJSON(data, eachMonthFn).addTo(damagewindMap)
+  L.geoJSON(data, { style: mapColor }).addTo(map3)
+  //  L.geoJSON(data, colorObject).addTo(map3) results in the map showing all one color
 })
+var cropAcreFeat = function (feature, layer) {
+  var name = feature.properties.STATE_NAME
+  var cropAcre = feature.properties.CROP_ACR12
+  var area = feature.properties.SQMI
+  layer.bindPopUp(name + ' is ' + area + ' square miles, and has <br>' + cropAcre + ' acres of cropland')
+}
