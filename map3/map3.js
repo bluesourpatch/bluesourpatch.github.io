@@ -10,21 +10,20 @@ jQuery.getJSON(urlUSData, function (data) {
     if (cropAcre > 3000000) { cropColor = 'limegreen' }
     return {
       fillColor: cropColor,
-      weight: 2,
-      fillOpacity: 0.4
-      // color: 'blue'
+      weight: 1,
+      fillOpacity: 0.4,
+      color: 'darkblue'
     }
   }
   var colorObject = {
     style: mapColor,
     onEachFeature: cropAcreFeat
   }
-  L.geoJSON(data, { style: mapColor }).addTo(map3)
-  //  L.geoJSON(data, colorObject).addTo(map3) results in the map showing all one color
+  L.geoJSON(data, colorObject).addTo(map3)
 })
 var cropAcreFeat = function (feature, layer) {
   var name = feature.properties.STATE_NAME
   var cropAcre = feature.properties.CROP_ACR12
   var area = feature.properties.SQMI
-  layer.bindPopUp(name + ' is ' + area + ' square miles, and has <br>' + cropAcre + ' acres of cropland')
+  layer.bindPopup(name + ' is ' + area + ' square miles, and has <br>' + cropAcre + ' acres of cropland')
 }
