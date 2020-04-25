@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="starter-template.css">
+    <script src="jquery-3.4.1.min.js"></script>
+    <title>Map Example</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">
+        Caribbean Map
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link btn btn-outline-success dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">More</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Caribbean">Other Caribbean Islands</a>
+              <a class="dropdown-item" href="https://www.caribbeantravel.com/">Booking Your Trip</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+      <div class="starter-template">
+        <div class="page-header">
+          <h1 class="head-title">Caribbean Map</h1>
+        </div>
+      <p class="lead">This is a map of some small islands in the Caribbean.<br> It highlights some under-visited locations.</p>
+      </div>
+      <div id="map"></div>
+      <h2 class="why">Why the Caribbean?</h2>
+        <p class="why-paragraph">The Caribbean is a very popular vacation destination, but vacationers often negelct some islands. With the serene beaches, delicious food,<br>and carefree attitude, their popularity is not surprising.</p>
+        <p></p>
+        <p class="why-paragraph">Follow the links for why these four islands should be included in your Caribbean vacation.</p>
+      <ol>
+        <li class="islands"><h4>Saint Barthelemy</h4></li>
+        <a class="list-group-item-info" href="https://travel.usnews.com/St_Barts/">About St. Barts</a>
+        <li class="islands"><h4>Dominica</h4></li>
+        <a class="list-group-item-info" href="https://www.britannica.com/place/Dominica">About Dominica</a>
+        <li class="islands"><h4>Saint Vincent</h4></li>
+        <a class="list-group-item-info" href="https://www.britannica.com/place/Saint-Vincent-and-the-Grenadines">About St. Vincent</a>
+        <li class="islands"><h4>Barbados</h4></li>
+        <a class="list-group-item-info" href="https://barbados.org/keyfacts.htm#.XqMns8hKg2w">About Barbados</a>
+      </ol>
+      <figure>
+        <img class="caribbean" src="caribbean.jpg" alt="Rainbows on Barbados beach">
+        <figcaption>Photo credit: Ashlee Autore</figcaption>
+      </figure>
+    </main><!-- /.container -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="map.js"></script>
+  </body>
+</html>
